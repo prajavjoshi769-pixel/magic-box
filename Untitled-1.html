@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magic Box ✨</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #2b1055, #7597de);
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    button {
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255,255,255,0.8);
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      padding: 20px;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      display: none;
+    }
+
+    /* Special messages — solid glowing pink, no blur */
+    .special {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff4da6; /* solid neon pink */
+      text-shadow: 
+        0 0 10px #ff4da6,
+        0 0 20px #ff66b2,
+        0 0 40px #ff3399;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff66b2; }
+      to   { text-shadow: 0 0 20px #ff66b2, 0 0 40px #ff3399; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Magic Box ✨</h1>
+  <button onclick="showMessage()">Click Me 🌸</button>
+  <div id="message"></div>
+
+  <script>
+    const messages = [
+      "You are stronger than you think 💪",
+      "Take a deep breath… it’s going to be okay 🌿",
+      "Stars shine the brightest in the dark ✨",
+      "One page at a time, one step at a time 📖",
+      "Remember: You are loved and never alone 💜",
+      "Even the longest night ends with sunrise 🌅",
+      "You make the world a better place 🌎",
+      "Don’t forget how far you’ve already come 🛤️",
+      "Your smile can change someone’s whole day 😊",
+      "Clouds never last forever ☁️☀️",
+      "Your story is still being written ✍️",
+      "You deserve peace and happiness 💖",
+      "It’s okay to rest, you’re still moving forward 🌸",
+      "Tiny steps count too 🐾",
+      "The best is yet to come 🌈",
+      "Someone out there is proud of you 🌟",
+      "You are more capable than you realize ⚡",
+      "You’ve survived 100% of your bad days so far 🛡️",
+      "Be gentle with yourself 💐",
+      "Your heart is stronger than you know ❤️",
+      "Breathe. Relax. Reset. 🌬️",
+      "You are a work of art 🎨",
+      "The world is better with you in it 🌍",
+      "It’s okay to not be okay sometimes 🤍",
+      "Every day is a fresh start 🌱",
+      "You bring light to people’s lives 🔆",
+      "Your feelings are valid 💌",
+      "Trust yourself, you’ve got this ✨",
+      "The stars are cheering for you 🌌",
+      "Your future self will thank you 🌻",
+      "You are loved, even on the hard days 💞",
+      "Keep going, you’re doing amazing 🚀",
+      "Little things matter the most 🌸",
+      "Your laughter is magic ✨",
+      "You are the calm in the storm 🌊",
+      "Kindness looks beautiful on you 💎",
+      "Dreams are waiting for you 🌠",
+      "Even small progress is progress 📈",
+      "Happiness is closer than you think 🌼",
+      "Your courage inspires others 🦋",
+      "You deserve to be proud of yourself 🏆",
+      "Every storm passes 🌦️",
+      "There’s magic inside you 🔮",
+      "Your kindness leaves ripples 🌊",
+      "Life is brighter with you in it ☀️",
+      "Your heart is full of strength 🕊️",
+      "You are unique and irreplaceable 🌹",
+      "Hope grows when you believe 🌱",
+      "You light up the world in your own way 💫",
+      "The best chapters are yet to be written 📚"
+    ];
+
+    let clickCount = 0;
+
+    function showMessage() {
+      clickCount++;
+      const messageBox = document.getElementById("message");
+      messageBox.classList.remove("special");
+
+      if (clickCount === 10) {
+        messageBox.innerText = "💌 Secret 1: No matter what happens, I’ll always be here for you ❤️";
+        messageBox.classList.add("special");
+      } else if (clickCount === 20) {
+        messageBox.innerText = "🌹 Secret 2: You’re the brightest part of my day, never forget that 💕";
+        messageBox.classList.add("special");
+      } else if (clickCount === 30) {
+        messageBox.innerText = "🌟 Secret 3: You inspire me more than you know ✨";
+        messageBox.classList.add("special");
+      } else if (clickCount === 40) {
+        messageBox.innerText = "🎁 Secret 4: You’re not just special, you’re my favorite person 💖";
+        messageBox.classList.add("special");
+      } else {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        messageBox.innerText = messages[randomIndex];
+      }
+
+      messageBox.style.display = "block";
+    }
+  </script>
+</body>
+</html>
